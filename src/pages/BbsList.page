@@ -1,0 +1,10 @@
+<apex:page standardController="One_s_Board__c" recordSetVar="bbs">
+    <apex:pageBlock title="BBS List">
+        <!--BBS List-->
+        <!-- <apex:pageBlockTable value="{! bbs}" var="bbs">
+           <apex:column value="{! bbs.title__c}"/>
+            <apex:column value="{! bbs.content__c}"/>
+            <apex:column value="{! bbs.CreatedDate}"/>
+        </apex:pageBlockTable>-->
+    </apex:pageBlock>
+</apex:page>

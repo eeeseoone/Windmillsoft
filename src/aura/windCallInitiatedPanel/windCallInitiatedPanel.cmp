@@ -1,0 +1,55 @@
+<!--
+  * ===============================================================
+  * File Name   : windCallInitiatedPanel.cmp
+  * Description : The container component that houses the UI of the adapter.
+  * Copyright   : Copyright © 2015-2018 WindmillSoft All Rights Reserved
+  * Author      : KJ.Hyun
+  * Modification Log
+  * ===============================================================
+  * Ver  Date          Author         Modification
+  * ===============================================================
+  * 1.0  2018. 06. 04. KJ.Hyun      Create
+  * ===============================================================
+-->
+<aura:component description="panel that is shown on dialing, incoming or transferring calls before being connected that displays basic contact info for the call." implements="c:windPanel">
+    <aura:attribute name="state" type="String" />
+    <aura:attribute name="label" type="String" />
+    <aura:attribute name="recordName" type="String" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="account" type="Object" />
+    <aura:attribute name="title" type="String" />
+    <aura:attribute name="phone" type="String" />
+    <aura:attribute name="conn" type="Object" />
+    <aura:attribute name="presence" type="String" description="Could be Available, Busy or Unavailable"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <div class="slds-panel">
+        <!--  Top section: Information about the contact, including an avatar -->
+        <div class="slds-panel__section">
+            <div class="avatar slds-align--absolute-center">
+                <div class="slds-avatar slds-avatar--circle slds-avatar--large">
+                    <img src="/resource/slds/assets/images/avatar1.jpg" alt="Contact" />
+                </div>
+            </div>
+            <div class="name slds-text-heading--large slds-text-color--weak slds-text-align--center">{!v.recordName}</div>
+            <div class="slds-text-heading--x-small slds-text-color--weak slds-text-align--center companyDetails">{!v.account.Name}</div>
+            <div class="slds-text-heading--x-small slds-text-color--weak slds-text-align--center companyDetails">{!v.title}</div>
+            <div class="incoming slds-text-heading--x-small slds-text-color--weak slds-text-align--center">
+            	{!v.state}&nbsp;
+             	<ui:outputphone value="{!v.phone}" />
+            	...
+            </div>
+            <div class="slds-text-heading--x-small slds-text-color--weak slds-text-align--center"> <c:windTicker /> </div>
+        </div>
+        
+       <!--  Bottom section: End button on Dialing; Decline and Accept buttons on Incoming or Transferring -->
+        <div class="bottom-panel slds-panel__section slds-align-bottom slds-grid">
+            <aura:if isTrue="{! v.state == 'Dialing'}">
+                <button class="slds-size--1-of-1 slds-button slds-button--destructive" onclick="{!c.end}">End</button>
+                <aura:set attribute="else">
+                    <button class="slds-size--1-of-2 slds-button slds-button--destructive" onclick="{!c.decline}">Decline</button>
+                    <button class="slds-size--1-of-2 slds-button slds-button--brand" onclick="{!c.accept}">Accept</button>
+                </aura:set>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>

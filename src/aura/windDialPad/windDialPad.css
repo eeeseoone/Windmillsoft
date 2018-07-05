@@ -1,0 +1,32 @@
+/*
+Copyright 2018 WindmillSoft, inc. All rights reserved.
+*/
+
+.THIS {
+	height: 100%;
+}
+
+.THIS .dialPadKey {
+	border: 1px  solid rgb(216, 221, 230);
+	border-radius: 0;
+}
+
+
+/* TODO: Make .slds-button's :focus box-shadow inset so it's visible on all sides of the buttons */
+.THIS .dialPadKey:focus {
+	box-shadow: 0 0 3px rgb(0, 112, 210) inset;
+}
+
+.THIS .keyValue {
+	font-size: 1.75rem;
+	font-weight: 300;
+}
+
+.THIS .keyValueSmall {
+	font-weight: 300;
+}
+
+.THIS .keyText {
+	text-transform: uppercase;
+	white-space: pre;
+}

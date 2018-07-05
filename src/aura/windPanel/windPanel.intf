@@ -1,0 +1,19 @@
+<!--
+  * ===============================================================
+  * File Name   : windPanel.cmp
+  * Description : The container component that houses the UI of the adapter.
+  * Copyright   : Copyright © 2015-2018 WindmillSoft All Rights Reserved
+  * Author      : KJ.Hyun
+  * Modification Log
+  * ===============================================================
+  * Ver  Date          Author         Modification
+  * ===============================================================
+  * 1.0  2018. 06. 04. KJ.Hyun      Create
+  * ===============================================================
+-->
+<aura:interface description="CTI Adapter Panel Interface, where every implementation is able to fire the events below.," >
+    <aura:registerEvent name="renderPanel" type="c:windRenderPanel"/>
+    <aura:registerEvent name="editPanel" type="c:windEditPanel"/>
+    <aura:registerEvent name="getSettings" type="c:windGetSettings"/>
+    <aura:registerEvent name="incommingCall" type="c:windIncommingCall"/>
+</aura:interface>

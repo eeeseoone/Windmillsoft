@@ -1,0 +1,16 @@
+<!--
+  * ===============================================================
+  * File Name   : windOnlinePresenceChanged.evt
+  * Description : The container component that houses the UI of the adapter.
+  * Copyright   : Copyright © 2015-2018 WindmillSoft All Rights Reserved
+  * Author      : KJ.Hyun
+  * Modification Log
+  * ===============================================================
+  * Ver  Date          Author         Modification
+  * ===============================================================
+  * 1.0  2018. 06. 04. KJ.Hyun      Create
+  * ===============================================================
+-->
+<aura:event type="COMPONENT" description="Event fire by status dropdown when the online presence changes, i.e. from Available to Busy">
+    <aura:attribute name="newStatus" type="String" description="New presence, i.e. Available, Busy or Unavailable."/>
+</aura:event>

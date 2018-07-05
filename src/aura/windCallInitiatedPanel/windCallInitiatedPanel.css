@@ -1,0 +1,33 @@
+/*
+Copyright 2018 WindmillSoft, inc. All rights reserved.
+*/
+.THIS.toggle {
+    display: none;
+}
+
+.THIS .avatar {
+    margin-top: 25%;
+    margin-bottom: 3%;
+}
+
+.THIS .name {
+    margin-bottom: 10%;
+}
+
+.THIS .incoming {
+    margin-top: 15%;
+    color: #1589ee;
+}
+
+.THIS .bottom-panel {
+    margin-top: 10%;
+}
+
+.THIS .slds-button {
+    font-weight: normal;
+    height: 40px;
+}
+
+.THIS .companyDetails {
+    font-size: 0.85rem;
+}

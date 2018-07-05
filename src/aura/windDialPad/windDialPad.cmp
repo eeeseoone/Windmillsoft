@@ -1,0 +1,31 @@
+<!--
+  * ===============================================================
+  * File Name   : windDialPad.cmp
+  * Description : The container component that houses the UI of the adapter.
+  * Copyright   : Copyright © 2015-2018 WindmillSoft All Rights Reserved
+  * Author      : KJ.Hyun
+  * Modification Log
+  * ===============================================================
+  * Ver  Date          Author         Modification
+  * ===============================================================
+  * 1.0  2018. 06. 04. KJ.Hyun      Create
+  * ===============================================================
+-->
+<aura:component description="Dial pad for demo adapter">
+	<aura:attribute name="_keys" type="List" description="Set in init: buttons shown on dial pad"/>
+    <aura:attribute name="size" type="String" default=""/>
+	<aura:registerEvent name="keyClick" type="c:windDialPadClick" description="Fired when a key is clicked"/>
+	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
+	<div class="slds-grid slds-wrap">
+		<aura:iteration items="{!v._keys}" var="key">
+			<a class="dialPadKey slds-col slds-size--1-of-3 slds-no-flex slds-button--neutral" onclick="{!c.handleClick}" data-value="{!key.value}">
+				<div class="{! 'slds-text-color--default slds-text-align--center keyValue'+ (v.size)}">
+					{!key.value}
+				</div>
+				<div class="keyText slds-text-color--weak slds-text-align--center slds-text-body--regular">
+					{!key.text}
+				</div>
+			</a>
+		</aura:iteration>
+	</div>
+</aura:component>

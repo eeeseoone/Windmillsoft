@@ -1,0 +1,48 @@
+/*
+Copyright 2018 WindmillSoft, inc. All rights reserved.
+*/
+
+.THIS .panel {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.THIS .button-inv {
+    background: #1589ee;
+}
+
+.THIS .status {
+    font-size: 0.75rem;
+}
+
+.THIS .callNote {
+    flex-grow: 1;
+}
+
+.THIS .forceHighlightsStencil .header.dark {
+    background: white;
+}
+
+.THIS .callNote {
+    display: flex;
+    flex-direction: column;
+}
+
+.THIS .iconCol {
+    border: 2px solid;
+}
+
+.THIS .callNote .textarea {
+    resize: none;
+}
+
+.THIS .dialPad {
+    box-sizing: border-box;
+}
+
+.THIS .dialPadIcon {
+    display: inline;
+    line-height: inherit;
+}

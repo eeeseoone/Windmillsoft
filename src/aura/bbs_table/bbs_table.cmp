@@ -1,0 +1,38 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<div style="width: 600px; height: 650px;">
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+          <thead>
+    <tr class="slds-text-title_caps">
+      <th scope="col">
+        <div class="slds-truncate" title="Author">Author</div>
+      </th>  
+      <th scope="col">
+        <div class="slds-truncate" title="Title">Title</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Account Name">Content Pre-view</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Written Date">Written Date</div>
+      </th>
+    </tr>
+  		</thead>
+  <tbody>
+    <tr>
+      <td data-label="">
+        <div class="slds-truncate" title="">eeeseoone</div>
+      </td>
+      <td data-label="">
+        <div class="slds-truncate" title="">문의할게요</div>
+      </td>
+      <td data-label="">
+        <div class="slds-truncate" title="">오배송건으로 문의드려요</div>
+      </td>
+      <td data-label="">
+        <div class="slds-truncate" title="">4/14/2015</div>
+      </td>
+    </tr>
+      </tbody>
+        </table>
+	</div>
+</aura:component>

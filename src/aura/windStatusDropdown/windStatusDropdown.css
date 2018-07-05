@@ -1,0 +1,24 @@
+/*
+Copyright 2018 WindmillSoft, inc. All rights reserved.
+*/
+
+.THIS .status-dropdown-show {
+    display: block;
+}
+
+.THIS .status-dropdown-hide {
+    display: none;
+}
+
+.THIS .status_label {
+    display: inline-block;
+}
+
+/* TODO: Only use non-SLDS classes in selectors. */
+.THIS .slds-icon-text-available {
+    fill: green;
+}
+
+.THIS .customDropdown{
+	border: 0;
+}

@@ -1,0 +1,39 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global"
+                controller="BBS_Controller">
+    <aura:attribute name="title" type="String"/>
+    <aura:attribute name="content" type="String"/>
+    <aura:attribute name="recordNumber" type="String"/>
+    <aura:attribute name="userId" type="String"/>
+    <aura:attribute name="bbsList" type="Object[]"/>
+    
+	<div class="slds-p-bottom_large slds-p-left_large" style="background-color:#4286f4; padding:2px; 
+		width:600px; height:600px;">
+        <div class="slds-grid slds-grid_vertical">
+            
+            <div class="slds-col" style="background-color: white;">                
+                <div class="slds-grid slds-grid_align-center" style="background-color:#494949; color: white; font-family:Nanumbarungothic; font-weight:bold; font-size:15px;">
+                    <div class="slds-col slds-size_2-of-12" align="center" style="outline: 0.5px solid blue;">
+                        작성자</div>
+                    <div class="slds-col slds-size_3-of-12" align="center" style="outline: 0.5px solid blue;">
+                        제목</div>
+                    <div class="slds-col slds-size_5-of-12" align="center" style="outline: 0.5px solid blue;">
+                        본문 미리보기</div>
+                    <div class="slds-col slds-size_2-of-12" align="center" style="outline: 0.5px solid blue;">
+                        작성시간</div>
+                </div> <!--repeating row-->
+                
+                <div class="slds-grid slds-grid_align-center"
+                     style="color: #606060; font-family:Source Han Sans KR Normal; font-size:15px;">
+                    <div class="slds-col slds-size_2-of-12" align="center" style="background-color: #ececec; outline: 0.5px solid blue;">
+                        eeeseoone</div>
+                    <div class="slds-col slds-size_3-of-12" align="center" style="outline: 0.5px solid blue;">
+                        질문!</div>
+                    <div class="slds-col slds-size_5-of-12" align="center" style="outline: 0.5px solid blue;">
+                        본문본문본문본문본문본문</div>
+                    <div class="slds-col slds-size_2-of-12" align="center" style="outline: 0.5px solid blue;">
+                        18/07/02</div>
+                </div><!--repeating row-->
+             </div>
+        </div>
+    </div>
+</aura:component>

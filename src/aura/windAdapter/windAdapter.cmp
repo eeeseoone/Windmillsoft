@@ -1,0 +1,37 @@
+<!--
+  * ===============================================================
+  * File Name   : CTIAdaper.cmp
+  * Description : The container component that houses the UI of the adapter.
+  * Copyright   : Copyright © 2015-2018 WindmillSoft All Rights Reserved
+  * Author      : KJ.Hyun
+  * Modification Log
+  * ===============================================================
+  * Ver  Date          Author         Modification
+  * ===============================================================
+  * 1.0  2018. 06. 04. KJ.Hyun      Create
+  * ===============================================================
+-->
+<aura:component description="The container component that houses the UI of the adapter.">
+    <aura:attribute name="presence" type="String" default="Busy" description="Could be Available, Busy or Unavailable"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <aura:attribute name="settings" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler name="renderPanel" action="{!c.renderPanel}" />
+    <aura:handler name="editPanel" action="{!c.editPanel}" />
+    <aura:handler name="getSettings" action="{!c.getSettings}" />
+    <aura:handler name="incommingCall" action="{!c.setIncommingCall}" />
+    <aura:registerEvent name="renderPanel" type="c:windRenderPanel" />
+    <aura:registerEvent name="getSettings" type="c:windGetSettings" />
+    <aura:registerEvent name="editPanel" type="c:windEditPanel" />
+    <aura:registerEvent name="incommingCall" type="c:windIncommingCall"/>
+    <c:windToast aura:id="toast-message" />
+    <aura:if isTrue="{!v.showSpinner}">
+        <div class="slds-spinner_container">
+            <div class="slds-spinner slds-spinner--small" aria-hidden="false" role="alert">
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+	{!v.body}
+</aura:component>

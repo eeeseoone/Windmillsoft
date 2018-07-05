@@ -1,0 +1,21 @@
+/*
+Copyright 2018 WindmillSoft, inc. All rights reserved.
+*/
+
+.THIS .customIcon {
+	fill: grey;
+}
+
+.THIS .helpBody {
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.THIS .subHeader {
+    font-weight: bold;
+}
+
+.THIS .footer {
+	text-align: left;
+	font-size: 0.85rem;
+}

@@ -1,0 +1,24 @@
+<aura:component
+	implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+	access="global" controller="BBS_Component_Controller">
+
+	<aura:attribute name="message" type="String"/>
+	<aura:attribute name="board" type="One_s_Board__c[]"/>
+	<aura:attribute name="author" type="User[]"/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+	<!--Detail panel-->
+	<div>
+	<p style="color:white; font-size:100pt;">hi</p>
+	<aura:iteration items="{!v.board}" var="brd"> 
+		<ui:outputText class="slds-output" value="{!brd.CreatedDate}" />
+		<ui:outputText class="slds-output" value="{!brd.title__c}" />
+		<ui:outputText class="slds-output" value="{!brd.content__c}" />
+	</aura:iteration>
+	<aura:iteration items="{!v.author}" var="usr">
+		<ui:outputText class="slds-output" value="{!usr.Name}"/>
+	</aura:iteration>
+	<p style="color:white; font-size:100pt;">hi</p>
+	</div>
+
+</aura:component>

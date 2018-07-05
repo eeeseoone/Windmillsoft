@@ -1,0 +1,167 @@
+<apex:page showHeader="false">
+	<apex:remoteObjects jsNamespace="RemoteObjectModel">
+        <apex:remoteObjectModel name="Contact" fields="Id, Phone, Name"/>
+    </apex:remoteObjects>
+    <apex:includeLightning />
+    <apex:includeScript value="{!URLFOR($Resource.sip, 'sip-0.10.0.js')}"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/support/api/42.0/lightning/opencti.js"></script>
+    
+	<div id="messages"></div>
+    <div>
+		<input type="text" id="kakaoSendMessage" style="display:none"/>
+	</div>
+	
+	
+	
+    <audio id="remoteAudio" style="display:none;"></audio>
+    <div id="lightning"></div>
+	<iframe id="ringfm" style="display:none;"></iframe>
+	
+    <script type="text/javascript">
+        var component;
+        var ring        = jQuery("#ringfm");
+        var isIncomming = false;
+        
+        function jsStartRinging(srcUrl){
+            var str = '<audio loop="loop" autoplay="true" src="' + srcUrl + '"></audio>';
+            ring.contents().find("body").html(str);
+        }
+        
+        function jsStopRinging(msg, c_type, t_type){
+            isIncomming = false;
+            ring.contents().find("body").html('');
+            if(!c_type)type = 'c:windPhonePanel';
+            if(!t_type)type = 'normal';
+            component.getEvent('renderPanel').setParams({
+    			type : c_type,
+    			toast : {'type': t_type, 'message': 'Call ' + msg + '.'},
+    			attributes : { presence : 'Available'}
+    		}).fire();
+        }
+        
+        var options = {
+            media: {
+                remote:{
+                    audio: document.getElementById('remoteAudio'),
+                    video: false
+                }
+            },
+            ua: {
+                uri: '1001@cti.nimuno.kr',
+                wsServers:  ['wss://cti.nimuno.kr:7443'],
+                register: true,
+                authorizationUser: '1001',
+                password: 'windmill13'
+            }
+        };
+
+        var simple = new SIP.WebRTC.Simple(options);
+        window.conn = simple;
+        simple.on('ringing', function() {
+            isIncomming = true;
+            sforce.opencti.setSoftphonePanelVisibility({
+                visible : true
+            });
+            console.log('window.conn ============================================================================');
+            console.log(window.conn);
+            component.getEvent('incommingCall').setParams({
+                conn: ''
+            }).fire();
+            //jsStartRinging("{!URLFOR($Resource.sip, 'rings/oldphone-mono.wav')}");
+            jsStartRinging("{!URLFOR($Resource.sip, 'rings/leaving_dreams.mkv')}");
+        });
+        
+        simple.on('new', function() {
+            console.log('new >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+            simple.session.on('directionChanged', function() {
+                console.log('session directionChanged >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+                if(!isIncomming){
+                    jsStartRinging("{!URLFOR($Resource.sip, 'rings/leaving_dreams.mkv')}");
+                }
+            });
+            simple.session.on('progress', function() {
+                console.log('session progress >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+            });
+            simple.session.on('accepted', function() {
+                console.log('session accepted >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+                jsStopRinging('accepted');
+            });
+            simple.session.on('rejected', function() {
+                console.log('session rejected >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+                jsStopRinging('rejected', 'c:windPhonePanel', 'warning');
+            });
+            simple.session.on('failed', function() {
+                console.log('session failed >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+            });
+            simple.session.on('terminated', function() {
+                console.log('session terminated >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+            });
+            simple.session.on('cancel', function() {
+                console.log('session cancel >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+                jsStopRinging('canceled', 'c:windPhonePanel', 'warning');
+            });
+            simple.session.on('reinvite', function() {
+                console.log('session reinvite >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+            });
+            simple.session.on('referRequested', function() {
+                console.log('session referRequested >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+            });
+            simple.session.on('replaced', function() {
+                console.log('session replaced >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+            });
+            simple.session.on('dtmf', function() {
+                console.log('session dtmf >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+            });
+            simple.session.on('trackAdded', function() {
+                console.log('session trackAdded >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+            });
+            simple.session.on('bye', function() {
+                console.log('session bye >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+            });
+        });
+        simple.on('registered', function() {
+            console.log('registered >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+        });
+        simple.on('unregistered', function() {
+            console.log('unregistered >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+        });
+        simple.on('connecting', function() {
+            console.log('connecting >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+        });
+        simple.on('connected', function() {
+            console.log('connected >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+            //jsStopRinging('connected', 'c:connenctedPanel');
+        });
+        simple.on('ended', function() {
+            console.log('ended >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+        });
+        simple.on('hold', function() {
+            console.log('hold >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+        });
+        simple.on('unhold', function() {
+            console.log('unhold >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+        });
+        simple.on('mute', function() {
+            console.log('mute >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+        });
+        
+        $Lightning.use("c:windAdapterOut", function() {
+            //$Lightning.createComponent("c:windAdapter", 
+            $Lightning.createComponent("c:windAdapter", 
+            {},
+            "lightning",
+            function(cmp) {
+                component = cmp;
+                checkCmp();
+                sforce.opencti.setSoftphonePanelVisibility({
+	                visible : true
+	            });
+            });
+        });
+        
+        function checkCmp(){
+            
+        }
+    </script>
+</apex:page>

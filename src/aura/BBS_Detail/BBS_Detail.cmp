@@ -7,18 +7,65 @@
 	<aura:attribute name="author" type="User[]"/>
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
+	<div class="slds-page-header">	
+		<div class="slds-media">
+			<div class="slds-media__figure">
+				<span class="slds-icon_container slds-icon-standard-record">
+					header text
+				</span>
+			</div>
+		</div>
+	</div>
+	
 	<!--Detail panel-->
-	<div>
-	<p style="color:white; font-size:100pt;">hi</p>
+	
+    <lightning:tabset selectedTabId="">
+        <lightning:tab label="details" id="details">
+			<lightning:recordViewForm recordId="{!v.recordId}" objectApiName = "One_s_Board__c">
+				<div class="slds-grid">
+					<div class="slds-col slds-size_1-of-2">
+			        	<lightning:outputField fieldName="Title__c"/>
+			        	<lightning:outputField fieldName="Content__c"/>
+			        </div>
+			        <div class="slds-col slds-size_1-of-2">
+			        	<lightning:outputField fieldName="WrittenDate__c"/>
+			        	<lightning:outputField fieldName="Author__c"/>
+			        </div>    
+				</div>
+			</lightning:recordViewForm>
+       	 </lightning:tab>
+        </lightning:tabset>
+	
+
+
+	
+<!-- 
+   <div style="width:600px; height:600px; background-color: #eeeeee;">
+   
+   	<p style="color:yellow; font-size:100pt;">hi1</p>
+   
 	<aura:iteration items="{!v.board}" var="brd"> 
 		<ui:outputText class="slds-output" value="{!brd.CreatedDate}" />
 		<ui:outputText class="slds-output" value="{!brd.title__c}" />
 		<ui:outputText class="slds-output" value="{!brd.content__c}" />
 	</aura:iteration>
-	<aura:iteration items="{!v.author}" var="usr">
-		<ui:outputText class="slds-output" value="{!usr.Name}"/>
-	</aura:iteration>
-	<p style="color:white; font-size:100pt;">hi</p>
-	</div>
 
+	<aura:iteration items="{!v.author}" var="usr">
+		<ui:outputText class="slds-output" value="{!usr.Name}"/> 
+	</aura:iteration>
+	
+	<p style="color:green; font-size:100pt;">hi4</p>
+	
+	</div>
+ -->
 </aura:component>
+
+
+
+
+
+
+
+
+
+

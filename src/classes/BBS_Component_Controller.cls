@@ -22,7 +22,7 @@ public class BBS_Component_Controller {
         
         List<One_s_Board__c> BbsList = new List<One_s_Board__C>();
         for(One_s_Board__c board: [
-            select id, CreatedDate, title__c, content__c 
+            select id, Title__c, Content__c, Author__c, WrittenDate__c 
             from One_s_Board__c 
             where id =: recordId
         ]){

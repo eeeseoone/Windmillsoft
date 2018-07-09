@@ -7,27 +7,51 @@
 	<aura:attribute name="author" type="User[]"/>
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
-		<div class="slds-page-header  s1FixedTop forceHighlightsStencilDesktop" 
-			data-aura-rendered-by="1725:0"
-			data-aura-class="forceHighlightsStencilDesktop"
-			style="height: 77px; left: 12px; right: 12px; padding-left: 16px; padding-right: 16px; border-radius: 4px;">
+	<div class="slds-page-header  s1FixedTop forceHighlightsStencilDesktop"
+		data-aura-rendered-by="1725:0"
+		data-aura-class="forceHighlightsStencilDesktop"
+		style="height: 77px; left: 12px; right: 12px; padding-left: 16px; padding-right: 16px; border-radius: 4px;">
 
-			<div class="slds-grid primaryFieldRow" data-aura-rendered-by="1726:0" style="transform: translate3d(0px, 0px, 0px);">
-				<div class="slds-grid slds-col slds-has-flexi-truncate slds-media--center" data-aura-rendered-by="1727:0">
-					<div class="slds-media__body" data-aura-rendered-by="1736:0">
-						<p class="entityNameTitle slds-breadcrumb__item slds-line-height--reset">One's Board</p>
-						<h1 class="slds-page-header__title slds-m-right--small slds-truncate slds-align-middle"
-							data-aura-rendered-by="1739:0" title="">
-							<span data-aura-rendered-by="1717:0" class="uiOutputText" data-aura-class="uiOutputText">
-							<!--Record Name-->
+		<div class="slds-grid primaryFieldRow" data-aura-rendered-by="1726:0"
+			style="transform: translate3d(0px, 0px, 0px);">
+			<div
+				class="slds-grid slds-col slds-has-flexi-truncate slds-media--center"
+				data-aura-rendered-by="1727:0">
+				<div class="slds-media__body" data-aura-rendered-by="1736:0">
+					<p
+						class="entityNameTitle slds-breadcrumb__item slds-line-height--reset">One's
+						Board</p>
+					<h1
+						class="slds-page-header__title slds-m-right--small slds-truncate slds-align-middle"
+						data-aura-rendered-by="1739:0" title="">
+						<span data-aura-rendered-by="1717:0" class="uiOutputText"
+							data-aura-class="uiOutputText"> <!--Record Name-->
 							{!v.board.Name}
-							</span>
-						</h1>
-					</div>
+						</span>
+					</h1>
+				</div>
+
+				<div class="slds-col slds-no-flex slds-grid slds-align-middle actionsContainer"
+					data-aura-rendered-by="4230:0">
+					<ul class="branding-actions slds-button-group slds-m-left--xx-small oneActionsRibbon forceActionsContainer"
+						data-aura-rendered-by="4245:0"
+						data-aura-class="oneActionsRibbon forceActionsContainer">
+						<li class="slds-button slds-button--neutral slds-truncate"
+							data-aura-rendered-by="4315:0"><a href="javascript:void(0);"
+							title="Edit" data-aura-rendered-by="4393:0"
+							class="forceActionLink" data-aura-class="forceActionLink"
+							role="button">
+								<div class="slds-truncate" title="Edit"
+									data-aura-rendered-by="4394:0">Edit</div>
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
-	
+	</div>
+
+
 	<!--Detail panel-->
 	<div class="row row-main" data-aura-rendered-by="1591:0">
 	<div class="column region-main" data-aura-rendered-by="1592:0">

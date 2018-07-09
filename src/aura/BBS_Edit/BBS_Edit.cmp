@@ -1,0 +1,20 @@
+<aura:component
+	implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+	access="global" controller="BBS_Component_Controller">
+	
+	<aura:attribute name="bbs" type="One_s_Board__c"/>
+	<aura:attribute name="recordId" type="String"/>	
+
+    <div class="slds-p-bottom_large slds-p-left_large" style="width:600px">
+		<lightning:recordEditForm aura:id="recordViewForm"
+								recordId="{!v.recordId}"
+								objectApiName="One_s_Board__c"
+								onsuccess="{!c.onSuccess}">
+								
+			<lightning:messages />
+			<lightning:inputField fieldName="title__c"/>
+			<lightning:inputField fieldName="content__c"/>
+			<lightning:button aura:id="submit" type="submit" label="Save" class="slds-m-top_medium"/>
+		</lightning:recordEditForm>
+	</div>
+</aura:component>

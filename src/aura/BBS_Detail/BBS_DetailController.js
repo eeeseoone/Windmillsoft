@@ -1,6 +1,6 @@
 ({
 	doInit : function(component, event, helper) {
-		console.log("holla horchatta");
+		console.log("holla horchata");
 		/*   
 		 component.set('v.board',[]); //빈 오브젝트로 저장 
 		 component.set('v.author',[]); //빈 오브젝트로 저장

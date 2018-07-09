@@ -3,42 +3,117 @@
 	access="global" controller="BBS_Component_Controller">
 
 	<aura:attribute name="message" type="String"/>
-	<aura:attribute name="board" type="One_s_Board__c[]"/>
+	<aura:attribute name="board" type="One_s_Board__c"/>
 	<aura:attribute name="author" type="User[]"/>
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
-	<div class="slds-page-header">	
-		<div class="slds-media">
-			<div class="slds-media__figure">
-				<span class="slds-icon_container slds-icon-standard-record">
-					header text
-				</span>
+		<div class="slds-page-header  s1FixedTop forceHighlightsStencilDesktop" 
+			data-aura-rendered-by="1725:0"
+			data-aura-class="forceHighlightsStencilDesktop"
+			style="height: 77px; left: 12px; right: 12px; padding-left: 16px; padding-right: 16px; border-radius: 4px;">
+
+			<div class="slds-grid primaryFieldRow" data-aura-rendered-by="1726:0" style="transform: translate3d(0px, 0px, 0px);">
+				<div class="slds-grid slds-col slds-has-flexi-truncate slds-media--center" data-aura-rendered-by="1727:0">
+					<div class="slds-media__body" data-aura-rendered-by="1736:0">
+						<p class="entityNameTitle slds-breadcrumb__item slds-line-height--reset">One's Board</p>
+						<h1 class="slds-page-header__title slds-m-right--small slds-truncate slds-align-middle"
+							data-aura-rendered-by="1739:0" title="">
+							<span data-aura-rendered-by="1717:0" class="uiOutputText" data-aura-class="uiOutputText">
+							<!--Record Name-->
+							{!v.board.Name}
+							</span>
+						</h1>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
 	
 	<!--Detail panel-->
-	
+	<div class="row row-main" data-aura-rendered-by="1591:0">
+	<div class="column region-main" data-aura-rendered-by="1592:0">
+	<div data-aura-rendered-by="1596:0" class="flexipageComponent" data-aura-class="flexipageComponent">
+	<div class="tabset slds-tabs_card uiTabset--base uiTabset--default uiTabset flexipageTabset"
+		data-aura-rendered-by="1641:0"
+		data-aura-class="uiTabset--base uiTabset--default uiTabset flexipageTabset">
     <lightning:tabset selectedTabId="">
         <lightning:tab label="details" id="details">
-			<lightning:recordViewForm recordId="{!v.recordId}" objectApiName = "One_s_Board__c">
+			<!-- <lightning:recordViewForm recordId="{!v.recordId}" objectApiName = "One_s_Board__c"> -->
 				<div class="slds-grid">
+				
 					<div class="slds-col slds-size_1-of-2">
-			        	<lightning:outputField fieldName="Title__c"/>
-			        	<lightning:outputField fieldName="Content__c"/>
-			        </div>
+			        	
+			        	<div class="slds-has-flexi-truncate slds-p-horizontal_x-small full forcePageBlockItem forcePageBlockItemView"
+			        		role="listitem" data-aura-rendered-by="868:0" data-aura-class="forcePageBlockItem forcePageBlockItemView">
+			        		<div class="slds-form-element slds-m-bottom_xx-small slds-form-element_edit slds-grow slds-hint-parent override--slds-form-element">			        		
+				        		<div class="test-id__field-label-container" data-aura-rendered-by="13:1167;a">				        	
+					        		제목
+					        	</div>
+					        	<span class="test-id__field-value slds-form-element__static slds-grow slds-form-element_separator is-read-only">
+					        		<span data-aura-rendered-by="902:0" class="uiOutputText">
+					        			{!v.board.title__c}
+					        		</span>
+					        	</span>
+				        	</div>
+			        	</div>
+			        	
+			        	<div class="slds-has-flexi-truncate slds-p-horizontal_x-small full forcePageBlockItem forcePageBlockItemView"
+			        		role="listitem" data-aura-rendered-by="868:0" data-aura-class="forcePageBlockItem forcePageBlockItemView">
+			        		<div class="slds-form-element slds-m-bottom_xx-small slds-form-element_edit slds-grow slds-hint-parent override--slds-form-element">
+				        		<div class="test-id__field-label-container" data-aura-rendered-by="13:1167;a">
+				        			내용
+				        		</div>		
+				        		<span class="test-id__field-value slds-form-element__static slds-grow slds-form-element_separator is-read-only">
+					        		<span data-aura-rendered-by="902:0" class="uiOutputText">
+				        				{!v.board.content__c}
+				        			</span>
+				        		</span>
+			        		</div>
+			        	</div>
+					
+					</div>
+			       
 			        <div class="slds-col slds-size_1-of-2">
-			        	<lightning:outputField fieldName="WrittenDate__c"/>
-			        	<lightning:outputField fieldName="Author__c"/>
-			        </div>    
-				</div>
-			</lightning:recordViewForm>
+			        	
+			        	<div class="slds-has-flexi-truncate slds-p-horizontal_x-small full forcePageBlockItem forcePageBlockItemView"
+			        		role="listitem" data-aura-rendered-by="868:0" data-aura-class="forcePageBlockItem forcePageBlockItemView">
+			        		<div class="slds-form-element slds-m-bottom_xx-small slds-form-element_edit slds-grow slds-hint-parent override--slds-form-element">
+				        		<div class="test-id__field-label-container" data-aura-rendered-by="13:1167;a">			        		
+				        			작성자
+				        		</div>
+				        		<span class="test-id__field-value slds-form-element__static slds-grow slds-form-element_separator is-read-only">
+				        			<span data-aura-rendered-by="902:0" class="uiOutputText">
+					        			{!v.board.author__c}
+					        		</span>
+					        	</span>
+				        	</div>
+			        	</div>
+			        	
+			        	<div class="slds-has-flexi-truncate slds-p-horizontal_x-small full forcePageBlockItem forcePageBlockItemView"
+			        		role="listitem" data-aura-rendered-by="868:0" data-aura-class="forcePageBlockItem forcePageBlockItemView">
+			        		<div class="slds-form-element slds-m-bottom_xx-small slds-form-element_edit slds-grow slds-hint-parent override--slds-form-element">
+				        		<div class="test-id__field-label-container" data-aura-rendered-by="13:1167;a">
+				        			게시일
+				        		</div>
+				        		<span class="test-id__field-value slds-form-element__static slds-grow slds-form-element_separator is-read-only">
+				        			<span data-aura-rendered-by="902:0" class="uiOutputText">
+				        				{!v.board.WrittenDate__c}
+				        			</span>
+				        		</span>
+			        		</div>
+			        	</div>
+			        </div>
+			        
+			   </div>    
+			      
+			        
+			<!-- </lightning:recordViewForm> -->
        	 </lightning:tab>
         </lightning:tabset>
-	
+	</div>
+</div>
+</div>
+</div>
 
-
-	
 <!-- 
    <div style="width:600px; height:600px; background-color: #eeeeee;">
    
@@ -59,13 +134,3 @@
 	</div>
  -->
 </aura:component>
-
-
-
-
-
-
-
-
-
-

@@ -18,18 +18,18 @@ public class BBS_Component_Controller {
     */
     
     @AuraEnabled
-    public static List<One_s_Board__c> getBoard(String recordId){ //id is the parameter
+    public static String getBoard(String recordId){ //id is the parameter
         
         List<One_s_Board__c> BbsList = new List<One_s_Board__C>();
         for(One_s_Board__c board: [
-            select id, Title__c, Content__c, Author__c, WrittenDate__c 
+            select name, id, Title__c, Content__c, Author__c, WrittenDate__c 
             from One_s_Board__c 
             where id =: recordId
         ]){
             BbsList.add(board);
         }
         
-        return BbsList;
+        return JSON.serialize(BbsList[0]);
     }
         
     @AuraEnabled

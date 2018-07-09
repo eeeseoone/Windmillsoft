@@ -17,9 +17,8 @@
 				//alert("From server1: " + response.getReturnValue());//여기까진 문제없이 떴음
 				var returnValue = response.getReturnValue();
 
-				console.log('>> JSON.stringify(returnValue): '
-						+ JSON.stringify(returnValue));
-				component.set('v.board', returnValue);
+				console.log('>> JSON.stringify(returnValue): ' + returnValue);
+				component.set('v.board', JSON.parse(returnValue));
 			} else {
 				console.log("Failed with state: " + state);
 			}

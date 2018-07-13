@@ -6,9 +6,12 @@ public class AttachmentController {
                                FROM ContentDocumentLink
                                WHERE LinkedEntityId = :recId order by Id desc Limit 1];
         //ContentVersion Id uniquely identifies the attachment
+        system.debug('>>>>>docLink' + docLink);
 		ContentVersion ver = [SELECT Id FROM ContentVersion Where ContentDocumentId = :docLink.ContentDocumentId];
+		system.debug('>>>>>>ver'+ver);
         //Update the Picture_Path field with the url of the image
         Speaker__c speaker = [SELECT Id FROM Speaker__c WHERE Id = :recId];
+		system.debug('>>>>>seaker' + speaker);
         speaker.Picture_Path__c = '/sfc/servlet.shepherd/version/download/'+ ver.Id;
         upsert speaker;
     }

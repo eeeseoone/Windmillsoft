@@ -4,7 +4,6 @@
 
 	<aura:attribute name="message" type="String"/>
 	<aura:attribute name="board" type="One_s_Board__c"/>
-	<aura:attribute name="author" type="User[]"/>
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
 	<div class="slds-page-header  s1FixedTop forceHighlightsStencilDesktop"
@@ -30,23 +29,27 @@
 						</span>
 					</h1>
 				</div>
-
+				
+				<!-- edit button -->
 				<div class="slds-col slds-no-flex slds-grid slds-align-middle actionsContainer"
 					data-aura-rendered-by="4230:0">
 					<ul class="branding-actions slds-button-group slds-m-left--xx-small oneActionsRibbon forceActionsContainer"
 						data-aura-rendered-by="4245:0"
 						data-aura-class="oneActionsRibbon forceActionsContainer">
 						<li class="slds-button slds-button--neutral slds-truncate"
-							data-aura-rendered-by="4315:0"><a href="javascript:void(0);"
-							title="Edit" data-aura-rendered-by="4393:0"
-							class="forceActionLink" data-aura-class="forceActionLink"
-							role="button">
-								<div class="slds-truncate" title="Edit"
-									data-aura-rendered-by="4394:0">Edit</div>
+							data-aura-rendered-by="4315:0">
+
+							<a href="BBS_Edit.cmp"
+								title="Edit" data-aura-rendered-by="4393:0"
+								class="forceActionLink" data-aura-class="forceActionLink"
+								role="button">
+									<div class="slds-truncate" title="Edit" data-aura-rendered-by="4394:0">
+								Edit</div>
 							</a>
 						</li>
 					</ul>
 				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -61,7 +64,6 @@
 		data-aura-class="uiTabset--base uiTabset--default uiTabset flexipageTabset">
     <lightning:tabset selectedTabId="">
         <lightning:tab label="details" id="details">
-			<!-- <lightning:recordViewForm recordId="{!v.recordId}" objectApiName = "One_s_Board__c"> -->
 				<div class="slds-grid">
 				
 					<div class="slds-col slds-size_1-of-2">
@@ -128,9 +130,7 @@
 			        </div>
 			        
 			   </div>    
-			      
-			        
-			<!-- </lightning:recordViewForm> -->
+			     
        	 </lightning:tab>
         </lightning:tabset>
 	</div>
@@ -138,23 +138,4 @@
 </div>
 </div>
 
-<!-- 
-   <div style="width:600px; height:600px; background-color: #eeeeee;">
-   
-   	<p style="color:yellow; font-size:100pt;">hi1</p>
-   
-	<aura:iteration items="{!v.board}" var="brd"> 
-		<ui:outputText class="slds-output" value="{!brd.CreatedDate}" />
-		<ui:outputText class="slds-output" value="{!brd.title__c}" />
-		<ui:outputText class="slds-output" value="{!brd.content__c}" />
-	</aura:iteration>
-
-	<aura:iteration items="{!v.author}" var="usr">
-		<ui:outputText class="slds-output" value="{!usr.Name}"/> 
-	</aura:iteration>
-	
-	<p style="color:green; font-size:100pt;">hi4</p>
-	
-	</div>
- -->
 </aura:component>

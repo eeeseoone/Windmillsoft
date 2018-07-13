@@ -1,10 +1,9 @@
+
+
 ({
 	doInit : function(component, event, helper) {
-		console.log("holla horchata");
-		/*   
-		 component.set('v.board',[]); //빈 오브젝트로 저장 
-		 component.set('v.author',[]); //빈 오브젝트로 저장
-		 */
+		console.log("hola horchata");
+
 		/*------------------------Board------------------------*/
 		var actionBoard = component.get("c.getBoard"); //client-side controller에서 어떤 액션을 취할건지 정의해줌        
 
@@ -24,6 +23,15 @@
 			}
 		});
 		$A.enqueueAction(actionBoard);
+
+	}
+})
+
+
+
+
+
+
 /*
 		------------------------Author------------------------
 		var actionAuthor = component.get("c.getAuthor"); //UserList를 리턴
@@ -46,5 +54,3 @@
 		});
 		$A.enqueueAction(actionAuthor);
 */
-	}
-})

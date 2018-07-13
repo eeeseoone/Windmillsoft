@@ -76,7 +76,7 @@
 					        	</div>
 					        	<span class="test-id__field-value slds-form-element__static slds-grow slds-form-element_separator is-read-only">
 					        		<span data-aura-rendered-by="902:0" class="uiOutputText">
-					        			{!v.board.title__c}
+					        			{!v.board.Title__c}
 					        		</span>
 					        	</span>
 				        	</div>
@@ -90,7 +90,7 @@
 				        		</div>		
 				        		<span class="test-id__field-value slds-form-element__static slds-grow slds-form-element_separator is-read-only">
 					        		<span data-aura-rendered-by="902:0" class="uiOutputText">
-				        				{!v.board.content__c}
+				        				{!v.board.Content__c}
 				        			</span>
 				        		</span>
 			        		</div>
@@ -108,7 +108,7 @@
 				        		</div>
 				        		<span class="test-id__field-value slds-form-element__static slds-grow slds-form-element_separator is-read-only">
 				        			<span data-aura-rendered-by="902:0" class="uiOutputText">
-					        			{!v.board.author__c}
+					        			{!v.board.Author__c}
 					        		</span>
 					        	</span>
 				        	</div>

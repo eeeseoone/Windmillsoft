@@ -1,5 +1,3 @@
-
-
 ({
 	doInit : function(component, event, helper) {
 		console.log("hola horchata");

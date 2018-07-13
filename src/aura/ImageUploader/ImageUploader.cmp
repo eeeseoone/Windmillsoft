@@ -1,5 +1,4 @@
 <aura:component controller="AttachmentController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
-	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <lightning:fileUpload label="Attach Picture"
                 name="fileUploader"
                 multiple="true"

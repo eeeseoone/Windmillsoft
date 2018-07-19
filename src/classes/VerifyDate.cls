@@ -13,6 +13,7 @@ public class VerifyDate {
 	
 	
 	//method to check if date2 is within the next 30 days of date1
+	@TestVisible
 	private static Boolean DateWithin30Days(Date date1, Date date2) {
 		//check for date2 being in the past
         	if( date2 < date1) { return false; }
@@ -25,6 +26,7 @@ public class VerifyDate {
 	}
 
 	//method to return the end of the month of a given date
+	@TestVisible
 	private static Date SetEndOfMonthDate(Date date1) {
 		//해당 월에 며칠이 포함되어있는지 알아내는 식.
 		Integer totalDays = Date.daysInMonth(date1.year(), date1.month());

@@ -1,0 +1,17 @@
+<!-- 
+Use the var attribute set to a
+Use the <li> HTML list tag
+Use the apex:outputLink component to link to the respective record detail page
+-->
+<apex:page name="AccountList" standardController="Account" recordSetVar="accounts">
+    <apex:pageBlock title="Accounts List">
+		<apex:repeat value="{! accounts}" var="a">
+
+			<li>
+			
+				<apex:outputLink value="/{!a.id}" >{!a.name}</apex:outputLink>
+	      	</li>
+		</apex:repeat>
+
+	</apex:pageBlock>
+</apex:page>

@@ -1,0 +1,6 @@
+<!-- Create a Visualforce page that displays the first name of the logged-in user. -->
+<apex:page >
+
+	{! $User.FirstName};
+	
+</apex:page>

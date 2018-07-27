@@ -1,29 +1,28 @@
-// if an opportunity is inserted or updated with a stage of 'Closed Won', 
-//it will have a task created with the subject 'Follow Up Test Task'.
-//To associate the task with the opportunity, fill the 'WhatId' field with the opportunity ID.
-trigger ClosedOpportunityTrigger on Account (after insert, after update) {
+trigger ClosedOpportunityTrigger on Opportunity (after insert, after update) {
 
 	List<Task> tasklist = new List<Task>();
 	List<Opportunity> opplist = new List<Opportunity>();
-
-	for(Account a : Trigger.New){
-			opplist=[SELECT Id, Stagename 
+	Opportunity opp = new Opportunity();
+	
+	for(Opportunity o :
+		//why didn't you use o...STUPID!
+		[SELECT Id, Stagename 
 			FROM Opportunity
-    		WHERE AccountId =:a.Id]; 
-
-
-
+			WHERE Id IN:Trigger.New AND
+			Stagename = 'closed won']){
+				
+				opplist.add(o);
+			}
+	 
+	
+	for(integer i = 0; i<opplist.size(); i++){
+		tasklist.add(new Task(subject='Follow Up Test Task',
+									WhatId = opplist[i].id));
+	}
+	for(integer j = 0; j<tasklist.size(); j++){
+		system.debug('tasklist[j]: ' + tasklist[j]);
+	}
+	if(tasklist.size()>0){
+		insert tasklist;
 	}
 }
-/*
-[SELECT Id, Stage 
-FROM Opportunity 
-WHERE ID IN : Trigger.NEW 
-AND Stage IN 'Closed Won']
-
-	for(Account a : Trigger.New){
-			opplist=[SELECT Id, Stage 
-			FROM Opportunity
-    		WHERE AccountId =:a.Id]; 
-	}
-*/

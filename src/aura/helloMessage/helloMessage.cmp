@@ -1,0 +1,15 @@
+<aura:component>
+
+    <!-- attribute1: message / attribute2: type -->
+    <aura:attribute name="message" type="String"/>
+    <p>Hello! {!'Hello!' + v.message} <!-- [ message goes here, soon ] --></p>
+    
+</aura:component>
+
+<!-- 
+the helloMessage component has one component attribute
+and that attribute is defined by setting the *name and *type of the attribute.
+The name of the attribute is message and, once we learn about expressions,
+that's how you'll reference it.
+It still only outputs static text and HTML, but we're inching closer to something useful.
+ -->

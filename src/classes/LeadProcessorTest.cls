@@ -3,7 +3,7 @@
 //and test that all Lead records were updated correctly.
 
 @isTest
-private class LeadProcessTest {
+private class LeadProcessorTest {
 	
 	@testSetup
 	static void setup(){

@@ -2,7 +2,7 @@
 public class AccountProcessorTest {
     
     @isTest
-    private static void testFunc() {
+    public static void testFunc() {
         account acc = new account();
         acc.name = 'MATW INC';
         insert acc;

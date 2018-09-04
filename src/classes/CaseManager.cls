@@ -21,7 +21,7 @@ global with sharing class CaseManager {
             Priority=priority);
         insert thisCase;
         return thisCase.Id;
-    }   
+    }
     @HttpDelete
     global static void deleteCase() {
         RestRequest request = RestContext.request;

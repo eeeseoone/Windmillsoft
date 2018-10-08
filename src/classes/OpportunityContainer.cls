@@ -1,0 +1,5 @@
+public without sharing class OpportunityContainer {
+    public List<Opportunity> opptys{
+    	get; set;
+    }
+}

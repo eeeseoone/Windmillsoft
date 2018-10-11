@@ -1,38 +1,8 @@
-<apex:page >
+<apex:page controller="test" action="{!init}">
+    testMessage : {!testMessage}
 	<div style="width: 600px; height: 650px;">
-    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
-          <thead>
-    <tr class="slds-text-title_caps">
-      <th scope="col">
-        <div class="slds-truncate" title="Author">Author</div>
-      </th>  
-      <th scope="col">
-        <div class="slds-truncate" title="Title">Title</div>
-      </th>
-      <th scope="col">
-        <div class="slds-truncate" title="Account Name">Content Pre-view</div>
-      </th>
-      <th scope="col">
-        <div class="slds-truncate" title="Written Date">Written Date</div>
-      </th>
-    </tr>
-  		</thead>
-  <tbody>
-    <tr>
-      <td data-label="">
-        <div class="slds-truncate" title="Cloudhub">eeeseoone</div>
-      </td>
-      <td data-label="">
-        <div class="slds-truncate" title="Cloudhub">문의할게요</div>
-      </td>
-      <td data-label="">
-        <div class="slds-truncate" title="4/14/2015">오배송건으로 문의드려요</div>
-      </td>
-      <td data-label="">
-        <div class="slds-truncate" title="Prospecting">4/14/2015</div>
-      </td>
-    </tr>
-      </tbody>
-        </table>
+		<p>this is status code: {!status} </p>
+		<p>this is json: {!json}</p>
 	</div>
 </apex:page>
+ 

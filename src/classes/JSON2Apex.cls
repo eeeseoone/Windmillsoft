@@ -14,7 +14,7 @@ public class JSON2Apex {
 
 	public List<Opptys> opptys;
 
-	
+	//this is static method	
 	public static JSON2Apex parse(String json) { //this is STATIC method
 		return (JSON2Apex) System.JSON.deserialize(json, JSON2Apex.class);
 	}

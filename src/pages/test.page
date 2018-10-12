@@ -2,7 +2,7 @@
     testMessage : {!testMessage}
 	<div style="width: 600px; height: 650px;">
 		<p>this is status code: {!status} </p>
-		<p>this is json: {!json}</p>
+		<p>this is body text: {!jsonTxt}</p>
 	</div>
 </apex:page>
- 
+  

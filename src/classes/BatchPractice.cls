@@ -1,6 +1,6 @@
 global class BatchPractice implements Database.Batchable<sObject>, Database.Stateful, Database.AllowsCallouts {  
 
-	public List<Bean> newOpptys{
+	public List<VO_Opportunity> newOpptys{
 		get;
 		set;
 	}
@@ -8,10 +8,9 @@ global class BatchPractice implements Database.Batchable<sObject>, Database.Stat
 	List<Opportunity> testMessage {get; set;}
 	
 	public BatchPractice(List<Opportunity> olst){
-//      user = new Bean(u);
-        newOpptys = new List<Bean>(); 
+        newOpptys = new List<VO_Opportunity>(); 
         for (Opportunity o : olst) {
-            newOpptys.add(new Bean(o)); 
+            newOpptys.add(new VO_Opportunity(o)); 
             System.debug('this has been through Bean: ' + o);
             testMessage.add(o);
 		}
@@ -87,7 +86,7 @@ global class BatchPractice implements Database.Batchable<sObject>, Database.Stat
         	for(Opportunity oppty : scope){   
         		System.debug('this is oppty in scope: ' + oppty);
         		opptys.add(oppty); 
-        	}}catch(Exception e){ //캐치할게 없으면 여기 아예 안들어오잖아..-.-
+        	}}catch(Exception e){ 
         			System.debug('this is Exception from For Loop: ' +  e);
         			msg+='for루프 중에 문제생김: ' +e.getMessage();
         			errorCount++;
@@ -97,12 +96,12 @@ global class BatchPractice implements Database.Batchable<sObject>, Database.Stat
         	
         //turn each record info into JSON type data.
         //OpportunityContainer container = new OpportunityContainer();
-        List<Bean> listBeans = new List<Bean>();
+        List<VO_Opportunity> listBeans = new List<VO_Opportunity>();
         
         //###potential error
         try{
         	for(Opportunity oppty : opptys){
-				listBeans.add(new Bean(oppty));        		
+				listBeans.add(new VO_Opportunity(oppty));        		
         	}
         	
         	//container.opptys = listBeans;
@@ -118,20 +117,11 @@ global class BatchPractice implements Database.Batchable<sObject>, Database.Stat
        	//List<Opportunity> opptyList = new List<Opportunity>();
        	//opptyList = container.opptys;
 			
-       	//removing attributes
-/*     
-       	for(integer i=0; i<opptyList.size(); i++){
-       		Opportunity oppty = opptyList[i];
-       		Map<String,Object> opptyMap = (Map<String,Object>)JSON.deserializeUntyped(JSON.serialize(oppty));
-       		removeAttributes(opptyMap);
-       		System.debug('this is attributes-removed JSON: '+JSON.serializePretty(opptyMap));
-       	}
-*/
+
        	//String jsonTxt = System.JSON.serialize(container.opptys);
        	String jsonTxt = System.JSON.serialize(listBeans);
        	System.debug('this is jsonTxt: '+jsonTxt);
 		       	       	
-		//http request 보내기까지 마치고, 관리자에게 email alert 보내기 
         //###potential error -->while sending HttpReq
         try{
 		HttpRequest req = new HttpRequest();
@@ -147,7 +137,6 @@ global class BatchPractice implements Database.Batchable<sObject>, Database.Stat
 		req.setEndpoint(endpoint);
 		req.setMethod('POST');
 		req.setBody(jsonTxt);
-//		req.setCompressed(true);
 			
 		res = http.send(req);
 		if(res.getStatusCode() == 200){
